@@ -17,7 +17,7 @@ The **ALI Project** is an initiative to create a truly independent AI ecosystem.
 -**Engine:** Local LLMs (Llama, Mistral) via **Ollama**.
 -**Interface:** Open WebUI / Customized ALI_OS shell.
 -**Knowledge Base:** Local RAG for private professional and personal archives.
--**Environment:** Secure "Black Box" infrastructure[cite: 25].
+-**Environment:** Secure "Black Box" infrastructure.
 
 ### 📈 Roadmap
 - [x] **Phase I: The Charter** - Finalizing the project's constitution.
