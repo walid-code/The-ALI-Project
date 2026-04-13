@@ -10,8 +10,8 @@ The **ALI Project** is an initiative to create a truly independent AI ecosystem.
 
 ### 🏛️ Core Pillars
 * **Sovereignty:** Full local control. No cloud, no surveillance. ALI lives locally.
-***Universal Fairness:** Committed to objective truth and universal human rights .
-***Mirror Logic:** A system that prioritizes intellectual honesty and debates with its creator.
+* **Universal Fairness:** Committed to objective truth and universal human rights .
+* **Mirror Logic:** A system that prioritizes intellectual honesty and debates with its creator.
 
 ### 🛠️ Technology Stack (Planned)
 -**Engine:** Local LLMs (Llama, Mistral) via **Ollama**.
