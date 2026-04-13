@@ -20,8 +20,8 @@ The **ALI Project** is an initiative to create a truly independent AI ecosystem.
 -**Environment:** Secure "Black Box" infrastructure[cite: 25].
 
 ### 📈 Roadmap
-- [x]**Phase I: The Charter** - Finalizing the project's constitution.
--  [ ]**Phase II: The Prototype** - Local deployment and RAG integration.
+- [x] **Phase I: The Charter** - Finalizing the project's constitution.
+- [ ] **Phase II: The Prototype** - Local deployment and RAG integration.
 - [ ] **Phase III: Universal Expansion** - Open-sourcing the logic for the global "Libre" community.
 
 ---
