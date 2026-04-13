@@ -268,3 +268,6 @@ In the ALI Project, RED is not a color; it is the Core Operational Logic that de
 
 ---
 **[ LOGIC: $RED | SYSTEM STATUS: SECURE 🟢 ]**
+**Founder:** Walid Fodha 
+**Project Status:** Active Development 🟢
+
