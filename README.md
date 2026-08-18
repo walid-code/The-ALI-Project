@@ -160,6 +160,13 @@ ALI_PROJECT/
 
 ---
 
+## Documentation
+
+- **[THE_ALI_PROJECT.md](docs/THE_ALI_PROJECT.md)** — Full manifesto (7 chapters: constitution, architecture, security, roadmap)
+- **[DEVELOPMENT_REPORT.md](docs/DEVELOPMENT_REPORT.md)** — Technical development report with complete history, architecture, and metrics
+
+---
+
 ## Roadmap
 
 - [x] **Phase I: The Charter** — Constitution and philosophy defined
