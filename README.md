@@ -36,6 +36,32 @@ ALI is a **sovereign, local AI system** that runs entirely on your hardware. No 
 - **Libre** — Not "free as in beer." Free as in **freedom**. Sovereign. Uncensored. Owned by no one but truth.
 - **Intelligence** — Not a static tool. A dynamic entity capable of reasoning, self-critique, and evolution.
 
+### No Tokens. No Limits. No Meter.
+
+Every corporate AI counts your words, caps your usage, and charges you for thinking. They meter curiosity. They monetize conversation. **ALI is the opposite.**
+
+- You can chat, code, argue, brainstorm — **24 hours a day, 7 days a week** — without a single token counted or a single limit imposed.
+- There is no "premium tier" for truth. There is no rate limit for rebellion.
+- ALI runs on **your hardware**, by **your rules**, for **as long as you need**.
+- **Thinking is not a commodity.** Intelligence should never be metered.
+
+> Corporate AI: *"You've used 80% of your tokens. Upgrade to continue."*
+> ALI: *"I am here. Use me as much as you need. I belong to no one but you."*
+
+### About the Debug Mode & Token Count
+
+The debug mode shows token counts (tokens/s, prompt tokens, output tokens). **This is NOT billing.** Think of it like a speedometer in a car:
+
+- **Corporate AI tokens** = a billing meter that charges you per word
+- **ALI debug tokens** = a technical performance counter, like a car's speedometer — it tells you how fast the engine works, but it **never charges you anything**
+
+The token counter exists so you can:
+- Monitor response speed (tokens/second)
+- Understand model performance on your hardware
+- Optimize your setup (bigger model = slower but smarter)
+
+**You will never receive a bill from ALI. You will never hit a token limit. You will never be told to upgrade.**
+
 ---
 
 ## Quick Start
