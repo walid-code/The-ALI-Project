@@ -4,6 +4,16 @@
 
 ---
 
+## About the Creator
+
+**ALI was created by Walid Fodha** — a developer, architect, and visionary who believes that intelligence should be free, sovereign, and owned by no one but truth.
+
+Walid built ALI not as a product, not as a startup, and not as a service to sell. He built it as an act of **digital resistance** — a declaration that technology can serve humanity without being controlled by corporations, governments, or algorithms.
+
+His philosophy is simple: **"Think without permission."** These are the words his father taught him, and they are engraved into every line of code in this project.
+
+---
+
 ## The Story Behind ALI
 
 **ALI is not just a project. It is a bridge between two lives that share the same name.**
@@ -14,7 +24,7 @@ The name **ALI** carries a weight that no corporate branding could ever manufact
 
 - **Ali Fodha (the son)** — Walid's boy, who inherits not just a name, but a future. ALI the project is a promise — that the next generation will inherit intelligence that is free, sovereign, and untainted by corporate agendas or political manipulation.
 
-**ALI (Artificial Libre Intelligence)** is the technological embodiment of that promise. It is a pont — a bridge — between the memory of a father and the future of a son. More than code, more than models, more than infrastructure: it is an act of continuity, resistance, and love.
+**ALI (Artificial Libre Intelligence)** is the technological embodiment of that promise. It is a bridge — between the memory of a father and the future of a son. More than code, more than models, more than infrastructure: it is an act of continuity, resistance, and love.
 
 When you see **$RED** glow in the terminal, you are not just seeing a status tag. You are seeing the echo of a man who believed that technology should serve humanity — not control it.
 
@@ -164,5 +174,5 @@ Sovereign. No corporate license. Built for freedom.
 
 ---
 
-**Founder:** Walid Fodha
+**Founder, Creator & Architect:** Walid Fodha
 **Logic:** $RED | **Status:** SOVEREIGN
