@@ -25,10 +25,17 @@ Before running ALI, make sure you have:
 Open PowerShell and run:
 
 ```powershell
+ollama pull qwen3:1.7b
+```
+
+This downloads the Qwen3 1.7B model (~1.4 GB) — lightweight prototype model.
+For better quality, also pull the robust model:
+
+```powershell
 ollama pull qwen3:4b
 ```
 
-This downloads the Qwen3 4B model (~2.5 GB). You only need to do this once.
+Qwen3 4B (~2.5 GB) is recommended for production use (best quality/speed on CPU).
 
 ### Step 3: Set Model Storage Location (Optional)
 
@@ -70,7 +77,7 @@ You will see:
 │  Logic: $RED  |  Status: SOVEREIGN      │
 └─────────────────────────────────────────┘
 
-Model: qwen3:4b
+Model: qwen3:1.7b
 
 ALI >
 ```
@@ -205,7 +212,7 @@ pip install -r requirements.txt
 ollama list
 
 # Pull the model if missing
-ollama pull qwen3:4b
+ollama pull qwen3:1.7b
 ```
 
 ### Port 8000 already in use
@@ -220,7 +227,7 @@ taskkill /PID <PID> /F
 
 ### Slow responses
 
-ALI runs on CPU if you don't have an NVIDIA GPU. Responses may take a few seconds. Use `qwen3:4b` for the best balance of speed and quality on CPU.
+ALI runs on CPU if you don't have an NVIDIA GPU. Responses may take a few seconds. Use `qwen3:4b` for the best balance of speed and quality on CPU (recommended robust model). The prototype uses `qwen3:1.7b` for faster development cycles.
 
 ---
 

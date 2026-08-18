@@ -95,8 +95,19 @@ pytest tests/
 ### Requirements
 
 - Python 3.13+
-- Ollama (with qwen3:4b model pulled)
+- Ollama installed
 - 16 GB RAM recommended
+
+### Models
+
+| Model | Size | Status | Usage |
+|-------|------|--------|-------|
+| qwen3:1.7b | 1.4 GB | **Prototype (current)** | Lightweight, fast on CPU |
+| qwen3:4b | 2.5 GB | **Recommended (robust)** | Best quality/speed balance on CPU |
+| qwen3:8b | 5.2 GB | Advanced | Most capable, slower on CPU |
+
+> **Current prototype model:** `qwen3:1.7b` — optimized for speed during development.
+> For production-quality responses, switch to `qwen3:4b` (recommended robust model).
 
 ---
 
@@ -118,7 +129,7 @@ ALI_PROJECT/
 
 | Layer | Technology |
 |-------|-----------|
-| LLM Engine | Ollama + Qwen3 (4B) |
+| LLM Engine | Ollama + Qwen3 (prototype: 1.7B / robust: 4B) |
 | Memory | ChromaDB (RAG) |
 | CLI | Rich + prompt_toolkit |
 | API | FastAPI + Uvicorn |
@@ -171,7 +182,7 @@ ALI_PROJECT/
 ## Roadmap
 
 - [x] **Phase I: The Charter** — Constitution and philosophy defined
-- [x] **Phase II: The Prototype** — Local deployment, Ollama, RAG, CLI, API, Frontend
+- [x] **Phase II: The Prototype (v0.1)** — Local deployment, Ollama (qwen3:1.7b), RAG, CLI, API, React frontend
 - [ ] **Phase III: Universal Expansion** — Open-sourcing for the global "Libre" community
 
 ---

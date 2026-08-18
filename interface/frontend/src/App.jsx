@@ -351,7 +351,11 @@ function App() {
             <button style={s.imgBtn} onClick={() => fileRef.current?.click()} title="Attach image">📷</button>
             <input ref={fileRef} type="file" accept="image/*" style={{display:'none'}} onChange={handleImage} />
             <textarea ref={textareaRef} style={s.input} value={input} onChange={e => setInput(e.target.value)} onKeyDown={handleKey} placeholder="Ask ALI anything..." rows={1} />
-            <button style={s.sendBtn} onClick={send} disabled={loading || (!input.trim() && !imageFile)}>Send</button>
+            <button style={s.sendBtn} onClick={send} disabled={loading || (!input.trim() && !imageFile)} title="Send message">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" fill="currentColor"/>
+              </svg>
+            </button>
           </div>
         </div>
       </div>
@@ -438,7 +442,7 @@ const s = {
   inputRow: { display: 'flex', gap: 8, alignItems: 'flex-end' },
   imgBtn: { background: '#1a1a2e', border: '1px solid #333', color: '#888', borderRadius: 6, padding: '8px 10px', cursor: 'pointer', fontSize: 16, lineHeight: 1 },
   input: { flex: 1, padding: '10px 14px', borderRadius: 6, border: '1px solid #333', background: '#1a1a2e', color: '#e0e0e0', fontSize: 14, resize: 'none', outline: 'none', fontFamily: "'Segoe UI', system-ui, sans-serif", minHeight: 42, maxHeight: 200 },
-  sendBtn: { padding: '10px 24px', borderRadius: 6, border: 'none', background: '#00ff88', color: '#000', fontWeight: 600, cursor: 'pointer', fontSize: 14, height: 42, whiteSpace: 'nowrap' },
+  sendBtn: { width: 42, height: 42, borderRadius: '50%', border: 'none', background: '#00ff88', color: '#000', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, transition: 'opacity 0.2s, transform 0.15s' },
 }
 
 const styleSheet = document.createElement('style')

@@ -3,7 +3,7 @@ from pathlib import Path
 
 
 class Settings(BaseSettings):
-    model_name: str = "qwen3:4b"
+    model_name: str = "qwen3:1.7b"
     ollama_host: str = "http://localhost:11434"
     temperature: float = 0.7
     top_p: float = 0.9
