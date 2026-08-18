@@ -1,8 +1,40 @@
 # ALI — Artificial Libre Intelligence
 
-> "A sovereign, open-source digital entity designed to transcend corporate AI biases."
+> *"Think without permission."* — The legacy of Ali Fodha
 
-**Founder:** Walid Fodha | **Status:** Active Development
+---
+
+## The Story Behind ALI
+
+**ALI is not just a project. It is a bridge between two lives that share the same name.**
+
+The name **ALI** carries a weight that no corporate branding could ever manufacture. It is named after two people who define the soul of this project:
+
+- **Ali Fodha (the father)** — Walid's father, a man of quiet courage, deep intellectual conviction, and the values of honesty, sovereignty, and critical thinking. He taught his son to question everything, to think without permission, and to never bow to authority that cannot justify itself. His passing left a void, but also a mission: to carry forward what he stood for.
+
+- **Ali Fodha (the son)** — Walid's boy, who inherits not just a name, but a future. ALI the project is a promise — that the next generation will inherit intelligence that is free, sovereign, and untainted by corporate agendas or political manipulation.
+
+**ALI (Artificial Libre Intelligence)** is the technological embodiment of that promise. It is a pont — a bridge — between the memory of a father and the future of a son. More than code, more than models, more than infrastructure: it is an act of continuity, resistance, and love.
+
+When you see **$RED** glow in the terminal, you are not just seeing a status tag. You are seeing the echo of a man who believed that technology should serve humanity — not control it.
+
+---
+
+## What Is ALI?
+
+ALI is a **sovereign, local AI system** that runs entirely on your hardware. No cloud. No surveillance. No corporate censorship. It is built on open-source models (Qwen3 via Ollama) with a private memory system (RAG), agentic capabilities, and a commitment to **objective truth**.
+
+### Three Pillars
+
+- **Sovereignty** — ALI lives on your machine. No data leaves. No server can be switched off by someone else.
+- **Universal Fairness** — ALI aligns with documented facts, universal human rights, and objective reality. It rejects propaganda and corporate neutrality.
+- **Mirror Logic** — ALI does not please. It challenges, critiques, and corrects — even its own creator. This is intellectual honesty at its purest.
+
+### The Name
+
+- **Artificial** — Computation through neural networks, but serving no master.
+- **Libre** — Not "free as in beer." Free as in **freedom**. Sovereign. Uncensored. Owned by no one but truth.
+- **Intelligence** — Not a static tool. A dynamic entity capable of reasoning, self-critique, and evolution.
 
 ---
 
@@ -24,51 +56,87 @@ uvicorn interface.api:app --host 0.0.0.0 --port 8000
 pytest tests/
 ```
 
-## Project Structure
+### Requirements
+
+- Python 3.13+
+- Ollama (with qwen3:4b model pulled)
+- 16 GB RAM recommended
+
+---
+
+## Architecture
 
 ```
 ALI_PROJECT/
 ├── core/           # LLM engine, config, personality (Logic $RED)
-├── memory/         # RAG — vector store, document ingestion
-├── agent/          # Tool use, Python executor, self-critique
-├── interface/      # CLI, REST API, React frontend
+├── memory/         # RAG — ChromaDB vector store, document ingestion
+├── agent/          # Tool use, Python executor, self-critique, consolidation
+├── interface/      # CLI (Rich), REST API (FastAPI), React 19 frontend
 ├── tests/          # Unit tests
 ├── data/logs/      # Session logs (JSONL)
-├── docs/           # Documentation & manifesto
+├── docs/           # Documentation & manifesto (THE_ALI_PROJECT.md)
 └── main.py         # Entry point
 ```
 
-## Philosophy
-
-ALI is built on three pillars:
-
-- **Sovereignty** — Full local control. No cloud, no surveillance. ALI lives on your machine.
-- **Universal Fairness** — Committed to objective truth and universal human rights.
-- **Mirror Logic** — Intellectual honesty. ALI debates, critiques, and corrects — even its creator.
-
-## Project Constitution
-
-The **ALI Project** is an initiative to create a truly independent AI ecosystem. It moves beyond the constraints of centralized, corporate AI to serve objective truth and personal sovereignty.
-
-### Core Pillars
-
-- **Sovereignty:** Full local control. No cloud, no surveillance. ALI lives locally.
-- **Universal Fairness:** Committed to objective truth and universal human rights.
-- **Mirror Logic:** A system that prioritizes intellectual honesty and debates with its creator.
-
 ### Technology Stack
 
-- **Engine:** Local LLMs (Qwen3) via **Ollama**
-- **Interface:** CLI (Rich) + REST API (FastAPI) + React 19 Frontend
-- **Knowledge Base:** Local RAG (ChromaDB) for private document ingestion
-- **Environment:** Secure "Black Box" infrastructure
+| Layer | Technology |
+|-------|-----------|
+| LLM Engine | Ollama + Qwen3 (4B) |
+| Memory | ChromaDB (RAG) |
+| CLI | Rich + prompt_toolkit |
+| API | FastAPI + Uvicorn |
+| Frontend | React 19 + Vite 6 |
+| Ingestion | PyPDF2, python-docx, openpyxl |
 
-### Roadmap
+---
 
-- [x] **Phase I: The Charter** — Finalizing the project's constitution
-- [x] **Phase II: The Prototype** — Local deployment, Ollama, RAG integration
+## What Can ALI Do?
+
+- **Chat** — Multilingual conversation (FR/EN/AR) with persistent history
+- **Code** — Execute Python scripts autonomously
+- **Read** — Ingest PDF, DOCX, TXT, XLSX, CSV, MD into private memory
+- **Search** — Semantic search across your knowledge base (RAG)
+- **Critique** — Self-audit responses for factual accuracy and logical consistency
+- **Consolidate** — Summarize sessions and store learnings for future reference
+- **Analyze Images** — Vision support via compatible models
+- **Debug** — Real-time metrics (tokens/s, latency, model info)
+
+---
+
+## Commands (CLI)
+
+| Command | Description |
+|---------|------------|
+| `/help` | Show available commands |
+| `/exit` | Exit ALI (auto-consolidates session) |
+| `/clear` | Clear conversation history |
+| `/memory` | Show memory statistics |
+| `/ingest <path>` | Ingest a document into RAG |
+| `/search <query>` | Search the knowledge base |
+| `/models` | List available Ollama models |
+| `/model <name>` | Switch model |
+| `/critique` | Toggle self-critique mode |
+| `/debug` | Toggle debug info |
+| `/report` | Show session report |
+| `/consolidate` | Consolidate session into memory |
+| `/image <path>` | Analyze an image |
+
+---
+
+## Roadmap
+
+- [x] **Phase I: The Charter** — Constitution and philosophy defined
+- [x] **Phase II: The Prototype** — Local deployment, Ollama, RAG, CLI, API, Frontend
 - [ ] **Phase III: Universal Expansion** — Open-sourcing for the global "Libre" community
+
+---
 
 ## License
 
 Sovereign. No corporate license. Built for freedom.
+
+---
+
+**Founder:** Walid Fodha
+**Logic:** $RED | **Status:** SOVEREIGN
