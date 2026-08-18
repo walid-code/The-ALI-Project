@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Data (user documents - keep git clean)
+data/*.pdf
+data/*.docx
+data/*.xlsx
+data/raw/
+data/logs/
+
+# Environment
+.env
+*.env.local
+
+# Vector DB
+memory/chromadb/
+
+# Model weights (too large for Git)
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.gguf
+ALI_CORE_RAW/
+ALI_READY_FOR_STUDIO/
+ALI_BRAIN_DEVELOPMENT/
+
+# Node
+node_modules/
+interface/frontend/node_modules/
+interface/frontend/dist/
+
+# Pip
+1.1.0
