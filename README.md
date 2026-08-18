@@ -162,6 +162,7 @@ ALI_PROJECT/
 
 ## Documentation
 
+- **[HOW_TO_RUN.md](docs/HOW_TO_RUN.md)** — Step-by-step guide to launch ALI (CLI & Web)
 - **[THE_ALI_PROJECT.md](docs/THE_ALI_PROJECT.md)** — Full manifesto (7 chapters: constitution, architecture, security, roadmap)
 - **[DEVELOPMENT_REPORT.md](docs/DEVELOPMENT_REPORT.md)** — Technical development report with complete history, architecture, and metrics
 
