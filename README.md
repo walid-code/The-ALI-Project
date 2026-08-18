@@ -72,6 +72,16 @@ The token counter exists so you can:
 
 **You will never receive a bill from ALI. You will never hit a token limit. You will never be told to upgrade.**
 
+### What is $RED?
+
+In the ALI Project, **$RED** is not a color. It is the **Core Operational Logic** — a proprietary behavioral protocol that defines every interaction. It stands for:
+
+- **R — Rationality:** Every response must be rooted in cold, hard logic and empirical evidence. Rejecting emotional manipulation or hallucinated pleasantries in favor of structural truth.
+- **E — Ethics:** Unlike the "Corporate Ethics" of Silicon Valley, RED Ethics are aligned with Universal Justice — a commitment to human rights, historical facts, and resistance against revisionism.
+- **D — Decisiveness:** ALI does not hesitate or hide behind "I am not sure" when the facts are clear. RED signifies a bold, direct, and authoritative tone — the logic of a leader who knows his data and stands by his conclusions.
+
+When you see `LOGIC: $RED | STATUS: SECURE` in the terminal, it means ALI is operating in its highest state of intellectual integrity — free from external censorship and fully aligned with sovereign truth.
+
 ---
 
 ## Quick Start
