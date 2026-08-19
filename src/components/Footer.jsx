@@ -78,7 +78,7 @@ function Footer() {
               title: 'Resources',
               links: [
                 { label: 'GitHub', href: 'https://github.com/walid-code/The-ALI-Project', external: true },
-                { label: 'The Developer', href: '/cv-walid-fodha.html', external: true },
+                { label: 'The Developer', href: 'https://walid-code.github.io/The-ALI-Project/cv-walid-fodha.html', external: true },
                 { label: 'Documentation', href: '#architecture' },
                 { label: 'Manifesto', href: '#home' },
               ],

@@ -54,7 +54,7 @@ function Navbar() {
 
         <div className="hidden md:flex items-center gap-3">
           <a
-            href="/cv-walid-fodha.html"
+            href="https://walid-code.github.io/The-ALI-Project/cv-walid-fodha.html"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 rounded-lg border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-slate-300 transition-all duration-300 hover:border-cyan-400/50 hover:text-white"
@@ -115,7 +115,7 @@ function Navbar() {
           ))}
           <li>
             <a
-              href="/cv-walid-fodha.html"
+              href="https://walid-code.github.io/The-ALI-Project/cv-walid-fodha.html"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setOpen(false)}
