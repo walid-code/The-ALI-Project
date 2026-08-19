@@ -45,5 +45,8 @@ node_modules/
 interface/frontend/node_modules/
 interface/frontend/dist/
 
+# Personal CV (private)
+public/cv-walid-fodha.html
+
 # Pip
 1.1.0
