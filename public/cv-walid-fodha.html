@@ -413,6 +413,53 @@
             opacity: 0.07;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
+
+        /* --- CYPHER EFFECT (Right-Click Encryption) --- */
+        body.cypher-active {
+            cursor: none;
+        }
+        body.cypher-active * {
+            transition: none !important;
+        }
+        .cypher-falling {
+            display: inline-block;
+            will-change: transform, opacity, filter;
+        }
+        #cypher-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9989;
+            pointer-events: none;
+            mix-blend-mode: screen;
+            opacity: 0;
+            transition: opacity 0.15s ease;
+        }
+        #cypher-overlay.visible {
+            opacity: 1;
+        }
+        #cypher-status {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 9995;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #ff0055;
+            text-shadow: 0 0 8px #ff0055;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+        #cypher-status.visible {
+            opacity: 1;
+            animation: cypher-pulse 0.8s ease-in-out infinite;
+        }
+        @keyframes cypher-pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
     </style>
 </head>
 <body class="bg-light text-dark dark:bg-dark dark:text-light transition-colors duration-300 ease-in-out selection:bg-matrix selection:text-black" id="body-content">
@@ -427,6 +474,10 @@
         </div>
         <div id="loader-status" class="mt-4 text-xs font-mono text-cyber tracking-widest uppercase animate-pulse">System Override...</div>
     </div>
+
+    <!-- Cypher Overlay (Right-Click Effect) -->
+    <div id="cypher-overlay"></div>
+    <div id="cypher-status">[ENCRYPTION ACTIVE]</div>
 
     <!-- 3D Background --><canvas id="bg-canvas"></canvas>
     <div class="noise"></div>
@@ -461,7 +512,7 @@
                 <i class="ph ph-sun text-xl hidden dark:block"></i>
             </button>
             
-            <a id="contact-btn" href="#contact" class="hover-trigger hidden sm:inline-block px-5 py-2 border border-matrix text-matrix text-xs font-bold uppercase tracking-widest hover:bg-matrix hover:text-black transition-all duration-300 clip-path-slant shadow-[0_0_10px_rgba(0,255,65,0.2)]">
+            <a id="contact-btn" href="#contact" class="hover-trigger hidden sm:inline-block px-5 py-2 border border-error text-error text-xs font-bold uppercase tracking-widest hover:bg-error hover:text-black transition-all duration-300 clip-path-slant shadow-[0_0_10px_rgba(255,0,85,0.25)]">
                 Contact
             </a>
         </div>
@@ -485,6 +536,11 @@
                         </p>
                         <div class="flex items-center gap-2 text-xs font-bold font-mono tracking-wider uppercase animate-bounce text-matrix pt-4">
                             [SCROLL_DOWN] <i class="ph ph-caret-double-down"></i>
+                        </div>
+                        <div class="pt-6">
+                            <button onclick="downloadCV()" class="inline-flex items-center gap-2 px-6 py-3 border border-cyber text-cyber text-xs font-bold font-mono uppercase tracking-widest hover:bg-cyber hover:text-black transition-all duration-300 clip-path-slant shadow-[0_0_10px_rgba(0,243,255,0.2)] hover-trigger">
+                                <i class="ph ph-file-pdf"></i> [DOWNLOAD_CV]
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -569,9 +625,66 @@
             </div>
         </section>
 
+        <!-- Stats Section --><section id="stats" class="py-16 px-6 border-t border-gray-800 bg-black relative overflow-hidden">
+            <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="stat-item hover-trigger hover:scale-105 transition-transform duration-300">
+                    <div class="font-display font-bold text-4xl md:text-5xl text-cyber"><span class="stat-number" data-target="11">0</span><span class="text-matrix">+</span></div>
+                    <p class="mt-2 text-xs font-mono uppercase tracking-widest text-gray-500">Expériences Pro</p>
+                </div>
+                <div class="stat-item hover-trigger hover:scale-105 transition-transform duration-300">
+                    <div class="font-display font-bold text-4xl md:text-5xl text-matrix"><span class="stat-number" data-target="15">0</span><span class="text-cyber">+</span></div>
+                    <p class="mt-2 text-xs font-mono uppercase tracking-widest text-gray-500">Technologies</p>
+                </div>
+                <div class="stat-item hover-trigger hover:scale-105 transition-transform duration-300">
+                    <div class="font-display font-bold text-4xl md:text-5xl text-cyber"><span class="stat-number" data-target="4">0</span><span class="text-matrix">+</span></div>
+                    <p class="mt-2 text-xs font-mono uppercase tracking-widest text-gray-500">Projets Livrés</p>
+                </div>
+                <div class="stat-item hover-trigger hover:scale-105 transition-transform duration-300">
+                    <div class="font-display font-bold text-4xl md:text-5xl text-error"><span class="stat-number" data-target="24">0</span><span class="text-cyber">/7</span></div>
+                    <p class="mt-2 text-xs font-mono uppercase tracking-widest text-gray-500">Sécurité Active</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Languages Section --><section id="languages" class="py-24 px-6 border-t border-gray-800 bg-gray-900 relative">
+            <div class="max-w-5xl mx-auto">
+                <span class="block text-sm font-mono font-bold uppercase tracking-widest text-gray-500 mb-12 flex items-center gap-2"><span class="text-cyber">03.</span> /set locale</span>
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-12">Langues</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="lang-item hover-trigger p-6 bg-black/50 border border-gray-800 hover:border-cyber transition-all duration-300">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="font-mono text-white font-bold">Français</span>
+                            <span class="text-xs font-mono text-cyber">Natif</span>
+                        </div>
+                        <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                            <div class="lang-bar h-full bg-gradient-to-r from-cyber to-matrix rounded-full" data-level="100" style="width:0%"></div>
+                        </div>
+                    </div>
+                    <div class="lang-item hover-trigger p-6 bg-black/50 border border-gray-800 hover:border-matrix transition-all duration-300">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="font-mono text-white font-bold">Anglais</span>
+                            <span class="text-xs font-mono text-matrix">Avancé</span>
+                        </div>
+                        <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                            <div class="lang-bar h-full bg-gradient-to-r from-cyber to-matrix rounded-full" data-level="85" style="width:0%"></div>
+                        </div>
+                    </div>
+                    <div class="lang-item hover-trigger p-6 bg-black/50 border border-gray-800 hover:border-cyber transition-all duration-300">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="font-mono text-white font-bold">Arabe</span>
+                            <span class="text-xs font-mono text-cyber">Natif</span>
+                        </div>
+                        <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                            <div class="lang-bar h-full bg-gradient-to-r from-cyber to-matrix rounded-full" data-level="100" style="width:0%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Experience Section --><section id="experience" class="py-24 px-6 border-t border-gray-800">
             <div class="max-w-5xl mx-auto">
-                <span class="block text-sm font-mono font-bold uppercase tracking-widest text-gray-500 mb-12 flex items-center gap-2"><span class="text-cyber">03.</span> /var/log/history</span>
+                <span class="block text-sm font-mono font-bold uppercase tracking-widest text-gray-500 mb-12 flex items-center gap-2"><span class="text-cyber">04.</span> /var/log/history</span>
                 
                 <div class="space-y-12">
                     <!-- Exp Item 1 --><div class="group relative pl-8 border-l border-gray-800 hover:border-cyber transition-all duration-300">
@@ -720,7 +833,7 @@
             <div class="max-w-7xl mx-auto px-6">
                  <div class="flex justify-between items-end mb-16">
                      <div>
-                        <span class="block text-sm font-mono font-bold uppercase tracking-widest text-gray-500 mb-4 flex items-center gap-2"><span class="text-matrix">04.</span> /home/projects</span>
+                        <span class="block text-sm font-mono font-bold uppercase tracking-widest text-gray-500 mb-4 flex items-center gap-2"><span class="text-matrix">05.</span> /home/projects</span>
                         <h2 class="text-4xl md:text-6xl font-display font-bold">Réalisations</h2>
                      </div>
                  </div>
@@ -804,9 +917,9 @@
 
         <!-- Contact Section --><section id="contact" class="min-h-[60vh] flex flex-col justify-center px-6 relative border-t border-gray-800 bg-gray-900/50">
             <div class="max-w-4xl mx-auto text-center">
-                <span class="block text-sm font-mono font-bold uppercase tracking-widest text-gray-500 mb-8 flex items-center justify-center gap-2"><span class="text-error">05.</span> Initialize_Handshake</span>
+                <span class="block text-sm font-mono font-bold uppercase tracking-widest text-gray-500 mb-8 flex items-center justify-center gap-2"><span class="text-error">06.</span> Initialize_Handshake</span>
                 <h2 class="text-5xl md:text-7xl font-display font-bold mb-12 tracking-tighter text-white">
-                    Connexion<span class="animate-pulse text-matrix">_</span>
+                    Connexion<span class="animate-pulse text-error">_</span>
                 </h2>
                 
                 <div class="grid md:grid-cols-2 gap-8 text-left max-w-2xl mx-auto mb-12">
@@ -815,11 +928,11 @@
                         <a href="mailto:walid.fodha@gmail.com" class="block text-lg md:text-xl font-mono text-white group-hover:text-cyber break-all">walid.fodha@gmail.com</a>
                     </div>
                     
-                    <!-- Phone --><div class="p-6 border border-gray-800 bg-black/50 hover:border-matrix transition-all group hover-trigger">
+                    <!-- Phone --><div class="p-6 border border-gray-800 bg-black/50 hover:border-error transition-all group hover-trigger">
                         <label class="text-xs font-mono text-gray-500 uppercase">Téléphone (Mobile)</label>
                         <div class="flex flex-col gap-1">
-                            <a href="tel:98206024" class="block text-lg font-mono text-white group-hover:text-matrix">98 206 024</a>
-                            <a href="tel:58245511" class="block text-lg font-mono text-white group-hover:text-matrix">58 245 511</a>
+                            <a href="tel:98206024" class="block text-lg font-mono text-white group-hover:text-error">98 206 024</a>
+                            <a href="tel:58245511" class="block text-lg font-mono text-white group-hover:text-error">58 245 511</a>
                         </div>
                     </div>
                 </div>
@@ -831,7 +944,7 @@
             </div>
 
             <footer class="absolute bottom-6 w-full text-center text-[10px] font-mono text-gray-600 left-0">
-                &copy; 2024 WALID FODHA. SYSTEM SECURE.
+                &copy; 2026 WALID FODHA. SYSTEM SECURE.
             </footer>
         </section>
     </main>
@@ -971,6 +1084,214 @@
             y: 50, opacity: 0, duration: 1, ease: "power3.out"
         });
         gsap.to(".marquee-content", { xPercent: -50, ease: "none", duration: 20, repeat: -1 });
+
+        // --- 7. Stats Counters (IntersectionObserver + rAF) ---
+        function animateCounter(el) {
+            const target = parseInt(el.dataset.target, 10);
+            const duration = 1800;
+            const start = performance.now();
+            function tick(now) {
+                const p = Math.min((now - start) / duration, 1);
+                const eased = 1 - Math.pow(1 - p, 3);
+                el.textContent = Math.round(target * eased);
+                if (p < 1) requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+        }
+        const statsObserver = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('.stat-number').forEach(el => statsObserver.observe(el));
+
+        // --- 8. Language Bars (IntersectionObserver) ---
+        const langObserver = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const bar = entry.target;
+                    const level = parseInt(bar.dataset.level, 10);
+                    const duration = 1200;
+                    const start = performance.now();
+                    function tick(now) {
+                        const p = Math.min((now - start) / duration, 1);
+                        const eased = 1 - Math.pow(1 - p, 3);
+                        bar.style.width = (level * eased) + '%';
+                        if (p < 1) requestAnimationFrame(tick);
+                    }
+                    requestAnimationFrame(tick);
+                    obs.unobserve(bar);
+                }
+            });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('.lang-bar').forEach(el => langObserver.observe(el));
+
+        // --- 8.5 DOWNLOAD CV (static PDF download) ---
+        function downloadCV() {
+            const a = document.createElement('a');
+            a.href = 'cv-walid-fodha.pdf';
+            a.download = 'CV-Walid-Fodha.pdf';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        // --- 9. CYPHER EFFECT (Right-Click Encryption) ---
+        const ALIEN_SYMBOLS = "ᚠᚢᚦᚨᚱᚲᚷᚹᚺᚾᛁᛃᛇᛈᛉᛊᛏᛒᛖᛗᛚᛜᛞᛟᥝᥙᥚᥡᥢ⍿⎔⏣ᜇᜋᜌᜎᜏᜑᰐᰓᰕᰖᯤ᯦ᯨ⋏ᑐᑕᓄᓗᙏᙁᘢᘴᙆᙇ";
+        let cypherActive = false;
+        let cypherFalling = false;
+        let cypherHoldTimer = null;
+        let cypherDecodeTimer = null;
+        let cypherOriginal = new Map();
+
+        const cypherOverlay = document.getElementById('cypher-overlay');
+        const cypherStatus = document.getElementById('cypher-status');
+        const cypherTargets = function() {
+            return document.querySelectorAll('#home h1, #about p, #about h2, #skills h2, #skills h3, #skills li, #skills span.block, #experience h2, #experience h3, #experience p, #experience li, #projects h2, #projects h3, #projects p, #contact h2, main h1, main h2, main h3, main p, main li, header a:not(#contact-btn), footer p');
+        };
+
+        function randomSymbol() {
+            return ALIEN_SYMBOLS[Math.floor(Math.random() * ALIEN_SYMBOLS.length)];
+        }
+
+        function cypherText(text) {
+            return text.split('').map(ch => {
+                if (ch.trim() === '') return ch;
+                if (/[\p{L}\p{N}]/u.test(ch)) return randomSymbol();
+                return /[\p{P}\p{S}]/u.test(ch) ? randomSymbol() : ch;
+            }).join('');
+        }
+
+        function encryptPage() {
+            if (cypherActive) return;
+            cypherActive = true;
+            cypherFalling = false;
+            const targets = cypherTargets();
+            targets.forEach(el => {
+                const original = el.textContent;
+                if (!original || original.trim().length < 2) return;
+                cypherOriginal.set(el, { html: el.innerHTML, text: original });
+                el.textContent = cypherText(original);
+            });
+            document.body.classList.add('cypher-active');
+            cypherOverlay.classList.add('visible');
+            cypherStatus.classList.add('visible');
+            cypherHoldTimer = setTimeout(() => {
+                if (cypherActive) startFalling();
+            }, 2500);
+        }
+
+        function wrapInSpan(original) {
+            const arr = original.split('').map(ch => {
+                const span = document.createElement('span');
+                span.className = 'cypher-falling';
+                span.textContent = cypherText(ch);
+                return span;
+            });
+            return arr;
+        }
+
+        function startFalling() {
+            if (cypherFalling || !cypherActive) return;
+            cypherFalling = true;
+            cypherStatus.innerText = '[SIGNAL LOST]';
+            cypherOriginal.forEach((data, el) => {
+                const wrapped = wrapInSpan(data.text);
+                el.textContent = '';
+                wrapped.forEach(span => el.appendChild(span));
+            });
+            gsap.to('.cypher-falling', {
+                y: () => gsap.utils.random(80, 250),
+                opacity: 0,
+                rotate: () => gsap.utils.random(-12, 12),
+                filter: 'blur(4px)',
+                duration: () => gsap.utils.random(0.8, 2),
+                stagger: 0.02,
+                ease: "power2.in",
+                onComplete: () => {
+                    cypherOriginal.forEach((data, el) => {
+                        el.textContent = '';
+                    });
+                }
+            });
+        }
+
+        function decodeText(el, original, progress) {
+            if (progress >= 1) {
+                el.innerHTML = original;
+                return true;
+            }
+            const chars = original.split('');
+            el.textContent = chars.map(ch => {
+                if (ch.trim() === '') return ch;
+                if (Math.random() < progress) return ch;
+                return randomSymbol();
+            }).join('');
+            return false;
+        }
+
+        function stopFallingAndDecode() {
+            cypherStatus.innerText = '[DECRYPTING...]';
+            cypherStatus.style.color = '#00f3ff';
+            cypherStatus.style.textShadow = '0 0 8px #00f3ff';
+            gsap.killTweensOf('.cypher-falling');
+            document.querySelectorAll('.cypher-falling').forEach(s => s.remove());
+            let progress = 0;
+            const step = () => {
+                progress += 0.06;
+                let allDone = true;
+                cypherOriginal.forEach((data, el) => {
+                    const done = decodeText(el, data.html, progress);
+                    if (!done) allDone = false;
+                });
+                if (allDone || progress >= 1) {
+                    cypherOriginal.forEach((data, el) => { el.innerHTML = data.html; });
+                    finishDecode();
+                    return;
+                }
+                cypherDecodeTimer = setTimeout(step, 40);
+            };
+            step();
+        }
+
+        function finishDecode() {
+            clearTimeout(cypherHoldTimer);
+            clearTimeout(cypherDecodeTimer);
+            cypherOriginal.clear();
+            cypherActive = false;
+            cypherFalling = false;
+            document.body.classList.remove('cypher-active');
+            cypherOverlay.classList.remove('visible');
+            cypherStatus.classList.remove('visible');
+            cypherStatus.innerText = '[ENCRYPTION ACTIVE]';
+            cypherStatus.style.color = '#ff0055';
+            cypherStatus.style.textShadow = '0 0 8px #ff0055';
+        }
+
+        // Block default context menu
+        document.addEventListener('contextmenu', e => e.preventDefault());
+
+        // Trigger on right-click (mousedown/button=2)
+        document.addEventListener('mousedown', e => {
+            if (e.button === 2 && !cypherActive) {
+                encryptPage();
+            }
+        });
+
+        // Decode on release (mouseup anywhere)
+        document.addEventListener('mouseup', e => {
+            if (e.button === 2 && cypherActive) {
+                stopFallingAndDecode();
+            }
+        });
+
+        // Safety: if mouse leaves window while held, decode
+        document.addEventListener('mouseleave', e => {
+            if (cypherActive) stopFallingAndDecode();
+        });
 
     </script>
 </body>
